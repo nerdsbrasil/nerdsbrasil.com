@@ -6,6 +6,7 @@ import { DiscordIcon, GithubIcon } from "@/components/app/icons";
 import { ActionSwapRollIcon } from "@/components/motion/action-swap-roll";
 import { Dock, DockItem } from "@/components/motion/dock";
 import { Tooltip } from "@/components/motion/tooltip";
+import { playTap } from "@/lib/snd";
 
 const DISCORD_INVITE = "https://discord.gg/TVnttzcGc";
 const GITHUB_URL = "https://github.com/nerdsbrasil";
@@ -45,6 +46,7 @@ export function SocialDock() {
                 rel="noreferrer noopener"
                 aria-label="Discord"
                 className={TRIGGER_CLASS}
+                onPointerEnter={() => playTap()}
               >
                 <DiscordIcon className="h-4 w-4" />
               </a>
@@ -58,6 +60,7 @@ export function SocialDock() {
                 rel="noreferrer noopener"
                 aria-label="GitHub"
                 className={TRIGGER_CLASS}
+                onPointerEnter={() => playTap()}
               >
                 <GithubIcon className="h-4 w-4" />
               </a>
@@ -73,7 +76,10 @@ export function SocialDock() {
                 type="button"
                 aria-label="Copiar email"
                 className={TRIGGER_CLASS}
-                onPointerEnter={() => setHovered(true)}
+                onPointerEnter={() => {
+                  setHovered(true);
+                  playTap();
+                }}
                 onPointerLeave={() => setHovered(false)}
                 onClick={copyEmail}
               >
