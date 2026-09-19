@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Tooltip } from "@/components/motion/tooltip";
+import { playTap } from "@/lib/snd";
 
 export function Mascot() {
   return (
@@ -14,6 +15,7 @@ export function Mascot() {
         unoptimized
         priority
         className="h-auto w-48 sm:w-56"
+        onPointerEnter={() => playTap()}
       />
     </Tooltip>
   );

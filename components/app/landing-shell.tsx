@@ -12,11 +12,14 @@ export function LandingShell({ children }: { children: ReactNode }) {
   return (
     <ClickSpark
       className="flex min-h-full flex-1 flex-col"
-      sparkColor="#fff"
-      sparkSize={12}
-      sparkRadius={18}
-      sparkCount={10}
-      duration={420}
+      sparkColor="rgba(255,255,255,0.75)"
+      sparkSize={7}
+      sparkRadius={12}
+      sparkCount={4}
+      duration={360}
+      extraScale={0.9}
+      arcStart={-Math.PI}
+      arcSweep={Math.PI / 2}
       onSpark={() => playTap()}
     >
       {children}

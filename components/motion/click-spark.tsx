@@ -19,6 +19,10 @@ type ClickSparkProps = {
   duration?: number;
   easing?: EasingName;
   extraScale?: number;
+  /** Start angle in radians (0 = right, -π/2 = up). */
+  arcStart?: number;
+  /** Sweep of the fan in radians. Default full circle. */
+  arcSweep?: number;
   className?: string;
   children?: ReactNode;
   /** Return true to skip spark (e.g. buttons / links). */
@@ -49,6 +53,8 @@ export function ClickSpark({
   duration = 400,
   easing = "ease-out",
   extraScale = 1,
+  arcStart = 0,
+  arcSweep = Math.PI * 2,
   className,
   children,
   shouldIgnore = isInteractiveTarget,
@@ -132,7 +138,7 @@ export function ClickSpark({
         const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
 
         ctx.strokeStyle = sparkColor;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 1.25;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -170,7 +176,8 @@ export function ClickSpark({
       ...Array.from({ length: sparkCount }, (_, i) => ({
         x,
         y,
-        angle: (2 * Math.PI * i) / sparkCount,
+        // fan from arcStart across arcSweep (e.g. top-left of the cursor)
+        angle: arcStart + (arcSweep * (i + 0.5)) / sparkCount,
         startTime: now,
       })),
     );
