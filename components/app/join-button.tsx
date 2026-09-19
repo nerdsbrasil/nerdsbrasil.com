@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/motion/button/base";
 
-const DISCORD_INVITE = "https://discord.gg/TVnttzcGc";
+const DISCORD_INVITE = "https://discord.gg/nerdsbrasil";
 
 export function JoinButton() {
   return (

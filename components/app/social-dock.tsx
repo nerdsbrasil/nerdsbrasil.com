@@ -7,7 +7,7 @@ import { ActionSwapRollIcon } from "@/components/motion/action-swap-roll";
 import { Dock, DockItem } from "@/components/motion/dock";
 import { Tooltip } from "@/components/motion/tooltip";
 
-const DISCORD_INVITE = "https://discord.gg/TVnttzcGc";
+const DISCORD_INVITE = "https://discord.gg/nerdsbrasil";
 const GITHUB_URL = "https://github.com/nerdsbrasil";
 const EMAIL = "contato@nerdsbrasil.com";
 
